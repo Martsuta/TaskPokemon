@@ -1,0 +1,7 @@
+platform :ios, '16.2'
+use_frameworks!
+
+target 'TaskPokemon' do
+   pod 'SwiftLint'
+   pod 'SnapKit'
+end
