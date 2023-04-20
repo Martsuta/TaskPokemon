@@ -10,7 +10,7 @@ import SnapKit
 
 // MARK: - Input
 protocol PokemonCellInput {
-    func configure()
+    func configure(with name: String)
 }
 
 // MARK: - PokemonCell
@@ -62,5 +62,7 @@ final class PokemonCell: UITableViewCell {
 
 // MARK: - PokemonCellInput
 extension PokemonCell: PokemonCellInput {
-    func configure() {}
+    func configure(with name: String) {
+        nameLabel.text = name
+    }
 }

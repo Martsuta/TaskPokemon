@@ -9,7 +9,9 @@ import UIKit
 import SnapKit
 
 // MARK: - Input
-protocol PokemonsViewInput: AnyObject {}
+protocol PokemonsViewInput: AnyObject {
+    func configure(with models: [PokemonModelDTO])
+}
 
 // MARK: - PokemonsViewController
 final class PokemonsViewController: UIViewController {
@@ -19,6 +21,8 @@ final class PokemonsViewController: UIViewController {
 
     // MARK: - PrivateProperties
     private let viewModel: PokemonsViewModelInput
+    
+    private var models = [PokemonModelDTO]()
 
     // MARK: - Init
     init(viewModel: PokemonsViewModelInput) {
@@ -32,6 +36,7 @@ final class PokemonsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewDidLoad()
         setupSubviews()
         setupConstraints()
         setupNavBar()
@@ -59,7 +64,12 @@ final class PokemonsViewController: UIViewController {
 }
 
 // MARK: - PokemonsViewInput
-extension PokemonsViewController: PokemonsViewInput {}
+extension PokemonsViewController: PokemonsViewInput {
+    func configure(with models: [PokemonModelDTO]) {
+        self.models = models
+        tableView.reloadData()
+    }
+}
 
 // MARK: - UITableViewDelegate
 extension PokemonsViewController: UITableViewDelegate {}
@@ -67,7 +77,7 @@ extension PokemonsViewController: UITableViewDelegate {}
 // MARK: - UITableViewDataSource
 extension PokemonsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        models.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,6 +85,8 @@ extension PokemonsViewController: UITableViewDataSource {
             withIdentifier: String(describing: PokemonCell.self),
             for: indexPath
         ) as? PokemonCell else { return UITableViewCell() }
+        
+        cell.configure(with: models[indexPath.row].name)
 
         return cell
     }

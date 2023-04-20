@@ -28,7 +28,7 @@ protocol EndpointProtocol {
 
 extension EndpointProtocol {
     var baseURL: URL? {
-        return URL(string: "https://pokeapi.co/api/v2/pokemon/")!
+        return URL(string: "https://pokeapi.co/api/v2/")!
     }
 
     var headers: [String: String]? {

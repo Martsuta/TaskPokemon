@@ -8,7 +8,9 @@
 import Foundation
 
 // MARK: - Input
-protocol PokemonUseCaseInput {}
+protocol PokemonUseCaseInput {
+    func getPokemons(completion: @escaping (Result<PokemonsModelDTO>) -> Void)
+}
 // MARK: - PokemonUseCase
 final class PokemonUseCase {
 
@@ -18,5 +20,17 @@ final class PokemonUseCase {
     // MARK: - Init
     init(pokemonService: PokemonService) {
         self.pokemonService = pokemonService
+    }
+}
+extension PokemonUseCase: PokemonUseCaseInput {
+    func getPokemons(completion: @escaping (Result<PokemonsModelDTO>) -> Void) {
+        pokemonService.getPokemons { result in
+            switch result {
+            case .success(let model):
+                completion(.success(model.toPokemonsModelDTO()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }
