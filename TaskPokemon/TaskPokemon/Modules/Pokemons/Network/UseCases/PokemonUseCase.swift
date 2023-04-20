@@ -9,18 +9,14 @@ import Foundation
 
 // MARK: - Input
 protocol PokemonUseCaseInput {}
-
 // MARK: - PokemonUseCase
 final class PokemonUseCase {
 
     // MARK: - PrivateProperties
-    private let networkService: NetworkService
+    private let pokemonService: PokemonService
 
     // MARK: - Init
-    init(networkService: NetworkService) {
-        self.networkService = networkService
+    init(pokemonService: PokemonService) {
+        self.pokemonService = pokemonService
     }
 }
-
-// MARK: - PokemonUseCaseInput
-extension PokemonUseCase: PokemonUseCaseInput {}
