@@ -23,7 +23,6 @@ final class Coordinator {
     func start(window: UIWindow) {
         let view = assembly.makePokemonsScreen(output: self)
         navigationController = UINavigationController(rootViewController: view)
-//        navigationController?.setNavigationBarHidden(true, animated: false)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }

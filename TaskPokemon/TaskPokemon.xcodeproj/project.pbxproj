@@ -20,6 +20,7 @@
 		D048DC5729F1A40D003FAA28 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048DC5629F1A40D003FAA28 /* Result.swift */; };
 		D048DC5C29F1A549003FAA28 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048DC5B29F1A549003FAA28 /* NetworkService.swift */; };
 		D048DC5F29F1A5E1003FAA28 /* PokemonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048DC5E29F1A5E1003FAA28 /* PokemonUseCase.swift */; };
+		D048DC6229F1A91A003FAA28 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048DC6129F1A91A003FAA28 /* PokemonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D048DC5629F1A40D003FAA28 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		D048DC5B29F1A549003FAA28 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D048DC5E29F1A5E1003FAA28 /* PokemonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonUseCase.swift; sourceTree = "<group>"; };
+		D048DC6129F1A91A003FAA28 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				D048DC5829F1A432003FAA28 /* Resources */,
 				D048DC5A29F1A502003FAA28 /* Services */,
 				D048DC5D29F1A594003FAA28 /* UseCases */,
+				D048DC6029F1A8FF003FAA28 /* Cells */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -146,6 +149,14 @@
 				D048DC5E29F1A5E1003FAA28 /* PokemonUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		D048DC6029F1A8FF003FAA28 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D048DC6129F1A91A003FAA28 /* PokemonCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		EC35A82C4212BB0DC213BA43 /* Pods */ = {
@@ -291,6 +302,7 @@
 			files = (
 				D048DC5029F19CD1003FAA28 /* PokemonsViewController.swift in Sources */,
 				D048DC4B29F19C1E003FAA28 /* Assembly.swift in Sources */,
+				D048DC6229F1A91A003FAA28 /* PokemonCell.swift in Sources */,
 				D048DC4D29F19C77003FAA28 /* Coordinator.swift in Sources */,
 				D048DC3529F19761003FAA28 /* AppDelegate.swift in Sources */,
 				D048DC5C29F1A549003FAA28 /* NetworkService.swift in Sources */,
