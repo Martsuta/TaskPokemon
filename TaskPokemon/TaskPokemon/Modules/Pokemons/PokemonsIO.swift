@@ -11,4 +11,6 @@ import Foundation
 protocol PokemonsInput: AnyObject {}
 
 // MARK: - Output
-protocol PokemonsOutput: AnyObject {}
+protocol PokemonsOutput: AnyObject {
+    func showPokemonInfoScreen(with pokemonLink: String)
+   }

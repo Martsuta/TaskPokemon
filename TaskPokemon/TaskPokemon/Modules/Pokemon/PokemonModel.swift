@@ -10,7 +10,7 @@ import Foundation
 // MARK: - PokemonModel
 struct PokemonModel: Codable {
     let name: String
-    let url: String?
+    let url: String
 }
 
 extension PokemonModel {

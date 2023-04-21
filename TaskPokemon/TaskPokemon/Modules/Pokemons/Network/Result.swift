@@ -10,5 +10,6 @@ import Foundation
 // MARK: - Result
 enum Result<Model> {
     case success(Model)
-    case failure(Error)
+    case failure(String?)
+    
 }

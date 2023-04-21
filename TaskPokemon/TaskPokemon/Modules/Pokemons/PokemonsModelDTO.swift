@@ -10,4 +10,5 @@ import Foundation
 // MARK: - PokemonsModelDTO
 struct PokemonsModelDTO {
     let pokemons: [PokemonModelDTO]
+    let nextLink: String?
 }
