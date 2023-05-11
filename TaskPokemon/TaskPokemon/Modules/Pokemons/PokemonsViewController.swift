@@ -18,34 +18,39 @@ protocol PokemonsViewInput: AnyObject {
 // MARK: - PokemonsViewController
 final class PokemonsViewController: UIViewController {
     
+    // MARK: - Constants
+    private enum Constants {
+        static var loaderViewSize: Int { 50 }
+        static var warningViewTopSpacing: Int { 4 }
+        static var warningViewLeadingTrailingSpacing: Int { 32 }
+    }
+    
     // MARK: - SubviewsProperties
     private let tableView = UITableView()
     private let loaderView = UIActivityIndicatorView(style: .large)
     private let warningView = WarningView()
     
-    
-    
     // MARK: - PrivateProperties
-    private let viewModel: PokemonsViewModelInput
-    
+    private let viewModel: PokemonsPresenterInput
     private var models = [PokemonModelDTO]()
     
     // MARK: - Init
-    init(viewModel: PokemonsViewModelInput) {
+    init(viewModel: PokemonsPresenterInput) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewDidLoad()
         setupSubviews()
         setupConstraints()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,13 +82,13 @@ final class PokemonsViewController: UIViewController {
         }
         
         loaderView.snp.makeConstraints { make in
-            make.size.equalTo(50)
+            make.size.equalTo(Constants.loaderViewSize)
             make.centerX.centerY.equalToSuperview()
         }
         
         warningView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(4)
-            make.leading.trailing.equalToSuperview().inset(32)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.warningViewTopSpacing)
+            make.leading.trailing.equalToSuperview().inset(Constants.warningViewLeadingTrailingSpacing)
         }
     }
 }
@@ -122,7 +127,6 @@ extension PokemonsViewController: UITableViewDelegate {
         viewModel.cellTapped(at: indexPath.row)
     }
 }
-
 
 // MARK: - UITableViewDataSource
 extension PokemonsViewController: UITableViewDataSource {

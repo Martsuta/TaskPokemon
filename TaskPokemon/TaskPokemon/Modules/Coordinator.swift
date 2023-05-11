@@ -31,15 +31,15 @@ final class Coordinator {
 // MARK: - PokemonsOutput
 extension Coordinator: PokemonsOutput {
     func showPokemonInfoScreen(with pokemonLink: String) {
-            let pokemonInfo = assembly.makePokemonInfoScreen(output: self)
-            pokemonInfo.input.configure(with: pokemonLink)
-            navigationController?.pushViewController(pokemonInfo.view, animated: true)
-        }
+        let pokemonInfo = assembly.makePokemonInfoScreen(output: self)
+        pokemonInfo.input.configure(with: pokemonLink)
+        navigationController?.pushViewController(pokemonInfo.view, animated: true)
     }
+}
 
-    // MARK: - PokemonInfoOutput
-    extension Coordinator: PokemonInfoOutput {
-        func closePokemonInfoScreen() {
-            navigationController?.popViewController(animated: true)
-        }
+// MARK: - PokemonInfoOutput
+extension Coordinator: PokemonInfoOutput {
+    func closePokemonInfoScreen() {
+        navigationController?.popViewController(animated: true)
     }
+}

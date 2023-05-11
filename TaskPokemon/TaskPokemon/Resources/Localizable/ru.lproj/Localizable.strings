@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  TaskPokemon
+
+  Created by Ирина Марцута on 11.05.23.
+  
+*/
+
+// MARK: - NameInfo
+"nameInfo" = "Имя";
+
+// MARK: - HeightInfo
+"heightInfo" = "Рост";
+
+// MARK: - WeightInfo
+"weightInfo" = "Вес";
+
+// MARK: - TypesInfo
+"typesInfo" = "Типы";
