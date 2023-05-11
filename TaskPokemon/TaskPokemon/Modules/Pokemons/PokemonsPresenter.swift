@@ -57,7 +57,7 @@ final class PokemonsPresenter {
     }
 }
 
-// MARK: - PokemonsViewModelInput
+// MARK: - PokemonsPresenterInput
 extension PokemonsPresenter: PokemonsPresenterInput {
     func viewDidLoad() {
         getPokemons()
